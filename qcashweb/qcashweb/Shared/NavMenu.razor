@@ -1,0 +1,37 @@
+﻿<nav class="navbar navbar-expand navbar-dark bg-dark top-row" style="width:100%" @onclick="ToggleNavMenu">
+    <a class="navbar-brand mt-1" href="/">ASSESSMENT TASK</a>
+    <div id="nav01">
+        <div class="navbar-nav" style="float:left !important">
+            <NavLink class="nav-item nav-link nav-border" href="" Match="NavLinkMatch.All"></NavLink>
+            <NavLink class="nav-item nav-link nav-border ml-0 mt-2 mb-1" href="lineInspection">
+                <span class="oi oi-home" style="font-size:20px;" aria-hidden="true">&nbsp;&nbsp;HOME</span>
+            </NavLink>
+        </div>
+    </div>
+</nav>
+<style>
+    .nav-border {
+        /*border-color:white;
+        border:1px solid rgba(255,255,255,.5);*/
+        /*margin-left: 15px;*/
+        /*border-radius: 4px 4px;*/
+    }
+
+    .e-return-icon::before {
+        content: '\e752';
+        /*color: white;*/
+    }
+</style>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
+

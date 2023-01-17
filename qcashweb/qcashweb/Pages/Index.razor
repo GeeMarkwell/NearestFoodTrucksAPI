@@ -1,0 +1,190 @@
+﻿@page "/"
+<style>
+
+            .e-input-group input.e-input, .e-input-group.e-control-wrapper input.e-input, .e-float-input input, .e-float-input.e-control-wrapper input, .e-input-group textarea.e-input, .e-input-group.e-control-wrapper textarea.e-input, .e-float-input textarea, .e-float-input.e-control-wrapper textarea, .e-input-group .e-input[disabled], .e-input-group.e-control-wrapper .e-input[disabled], .e-input-group.e-disabled input.e-input, .e-input-group.e-control-wrapper.e-disabled input.e-input, .e-input-group.e-disabled textarea.e-input, .e-input-group.e-control-wrapper.e-disabled textarea.e-input {
+        background: #fdff8f;
+        color: inherit;
+    }
+        .e-input:not(:valid), .e-input:valid, .e-float-input.e-control-wrapper input:not(:valid), .e-float-input.e-control-wrapper input:valid, .e-float-input input:not(:valid), .e-float-input input:valid, .e-input-group input:not(:valid), .e-input-group input:valid, .e-input-group.e-control-wrapper input:not(:valid), .e-input-group.e-control-wrapper input:valid, .e-float-input.e-control-wrapper textarea:not(:valid), .e-float-input.e-control-wrapper textarea:valid, .e-float-input textarea:not(:valid), .e-float-input textarea:valid, .e-input-group.e-control-wrapper textarea:not(:valid), .e-input-group.e-control-wrapper textarea:valid, .e-input-group textarea:not(:valid), .e-input-group textarea:valid {
+        box-shadow: none;
+        font-size: 20px;
+        height: 30px;
+        color: black;
+        text-transform:uppercase;
+        text-align:center;
+    }
+
+        td.container4 {
+    position: relative
+}
+
+    td.container4 span {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+        .tableFixHead {
+            overflow-y: auto;
+            height: 650px;
+        }
+            .tableFixHead thead {
+                position: sticky;
+                top: -2px;
+                z-index: 9999;
+                vertical-align: top;
+            }
+            .tableFixHead thead td {
+                position: sticky;
+@*                top: 15%;
+*@                z-index: 9999;
+                background-color: #557ba1;
+                color: #ffffff;
+
+            padding: 0px;
+        }
+        .grayRow {
+            background-color: lightgray;
+        }
+        .whiteRow {
+            background-color: white;
+        }
+        th {
+            background-color: black !important;
+
+                vertical-align: top;
+            }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding: 0px;
+        }
+        .blueRow {
+            background-color: lightgray;
+        }
+        .whiteRow {
+            background-color: white;
+        }
+        th {
+            background-color: black !important;
+            color: #ffffff !important;
+        }
+
+
+</style>
+<div class="p-0">
+    <div class="text-center col-12 m-0p-0">
+        <h1 class="text-center font-weight-bold p-0 m-0" style="font-size:50px;">FIND YOUR NEAREST FOOD TRUCKS</h1>
+    </div>
+    <div class="col-12 m-0 p-0 row">
+        <div class="col-4 m-0 p-0 row">
+            <div class="col-5 text-right">
+                <label class="font-weight-bold text-left">ENTER LATITUDE:</label>
+            </div>
+            <div class="col-7 m-0 p-0">
+                <input type="number" style="text-align:left;background-color:lightgoldenrodyellow" @bind="@Latitude" />
+            </div>
+        </div>
+        <div class="col-4 m-0 p-0 row">
+            <div class="col-5 text-right">
+                <label class="font-weight-bold text-left">ENTER LONGITUDE:</label>
+            </div>
+            <div class="col-7 m-0 p-0">
+                <input type="number" style="text-align:left;background-color:lightgoldenrodyellow" @bind="@Longitude" />
+            </div>
+        </div>
+        <div class="col-4 m-0 p-0">
+            <button class="btn-danger ml-2" @onclick="() => FindNearestFoodTrucks()">FIND</button>
+        </div>
+    </div>
+    @if (ShowSpinner)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div class="col-12 row m-0 p-0 table-responsive tableFixHead " style="z-index:0;top:-5px !important">
+            <table class="table col-12">
+                <thead>
+                    <tr class="p-0 text-white">
+                        <th class="border border-dark text-center m-0 p-0">
+                            LOCATION ID
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0">
+                            APPLICANT
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0">
+                            <div class="col-12 m-0 p-0  text-center">
+                                <label class="m-0 p-0">LOCATION DESCRIPTION</label>
+                            </div>
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0 ">
+                            <div class="col-12 m-0 p-0 text-center">
+                                <label class="m-0 p-0">ADDRESS</label>
+                            </div>
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0">
+                            <div class="col-12 m-0 p-0 text-center">
+                                <label class="m-0 p-0">LATITUDE</label>
+                            </div>
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0">
+                            <div class="col-12 m-0 p-0  text-center">
+                                <label class="m-0 p-0">LONGITUDE</label>
+                            </div>
+                        </th>
+                        <th class="border border-dark text-center m-0 p-0 ">
+                            DISTANCE
+                        </th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @{
+
+                        int row = 1;
+                        foreach (var truck in NearbyTruckList)
+                        {
+                            <tr class="p-0 @( row % 2 == 0 ? " grayRow" : "whiteRow" )">
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center">
+                                    @truck.Locationid
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center">
+                                    @truck.Applicant
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center ">
+                                    @truck.LocationDescription
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center">
+                                    @truck.Address
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center ">
+                                    @truck.Latitude
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center ">
+                                    @truck.Longitude
+                                </td>
+                                <td class="border border-dark font-weight-bold p-0 align-middle text-center">
+                                    @truck.Distance
+                                </td>
+
+
+                            </tr>
+                            row++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+
+</div>
+
+
+

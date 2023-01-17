@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{518B383C-BED9-4229-BBD8-883B23223BE2}|https">
+  <MonoDevelop.Ide.ItemProperties.qcashweb PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="qcashweb/Pages/Index.razor.cs">
+    <Files>
+      <File FileName="../CSharp_Assessment_Task/CSharpAssessmentTask/CSharpAssessmentTask.sln" />
+      <File FileName="qcashweb/Shared/MainLayout.razor" />
+      <File FileName="qcashweb/Shared/NavMenu.razor" />
+      <File FileName="qcashweb/ViewModels/NearestTrucksViewModel.cs" />
+      <File FileName="qcashweb/Data/CSharpAssessmentTaskDbContext.cs" Line="28" Column="9" />
+      <File FileName="qcashweb/Data/MobileFoodFacility.cs" Line="14" Column="45" />
+      <File FileName="qcashweb/DataAccess/AppDbContext.cs" />
+      <File FileName="qcashweb/Pages/Index.razor" Line="35" Column="4" />
+      <File FileName="qcashweb/Pages/Counter.razor" />
+      <File FileName="qcashweb/Pages/_Host.cshtml" />
+      <File FileName="qcashweb/Shared/SurveyPrompt.razor" />
+      <File FileName="qcashweb/Program.cs" Line="40" Column="1" />
+      <File FileName="qcashweb/_Imports.razor" />
+      <File FileName="qcashweb/Pages/Index.razor.cs" Line="55" Column="21" />
+      <File FileName="qcashweb/appsettings.json" Line="3" Column="142" />
+      <File FileName="qcashweb/Startup.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="qcashweb" expanded="True">
+            <Node name="qcashweb" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="DataAccess" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="Index.razor" expanded="True">
+                  <Node name="Index.razor.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Shared" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/user/Documents/gee/qcash/qcashweb/qcashweb/Pages/Index.razor.cs" relfile="qcashweb/Pages/Index.razor.cs" line="36" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
