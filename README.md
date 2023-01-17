@@ -13,3 +13,5 @@ Create a more robust and maintainable way to read the CSV file, can use a librar
 Validate the user input before using it to avoid exception, also add some user feedback to show that they need to fill in the specific fields.
 Read CSV file more dynamically to read from a configuration file
 Add a cache to prevent re-reading.
+
+Will do on Teams call.
