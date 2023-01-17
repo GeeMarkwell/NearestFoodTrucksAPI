@@ -66,7 +66,7 @@ namespace qcashweb.Pages
                 }
                 catch (Exception ex)
                 {
-
+                    Console.Write(ex);
                 }
 
             }
